@@ -1,5 +1,5 @@
 import { Overlay, ModalWin } from './Modal.styled';
-
+import PropTypes from 'prop-types';
 export const Modal = ({ largeImg, imgAlt }) => {
   return (
     <Overlay>
@@ -8,4 +8,8 @@ export const Modal = ({ largeImg, imgAlt }) => {
       </ModalWin>
     </Overlay>
   );
+};
+Modal.propType = {
+  largeImg: PropTypes.string.isRequired,
+  imgAlt: PropTypes.string.isRequired,
 };

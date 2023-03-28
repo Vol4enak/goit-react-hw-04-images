@@ -1,4 +1,5 @@
 import { LoadBtn } from './Button.styled';
+import PropTypes from 'prop-types';
 export const DowlandMore = ({ onSearch }) => {
 
 
@@ -12,4 +13,7 @@ export const DowlandMore = ({ onSearch }) => {
       Load More
     </LoadBtn>
   );
+};
+DowlandMore.propTypes = {
+  onSearch: PropTypes.func.isRequired,
 };

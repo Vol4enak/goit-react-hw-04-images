@@ -4,6 +4,7 @@ import {
   SearchFormButton,
   SearchFormInput,
 } from './Searchbar.styled';
+import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaSearch } from 'react-icons/fa';
@@ -38,3 +39,6 @@ export const SearchBar = ({ onSubmit }) => {
     </Searchbar>
   );
 };
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+}
