@@ -5,7 +5,8 @@ export const DowlandMore = ({ onSearch }) => {
   return (
     <LoadBtn
       onClick={() => {
-        onSearch();
+        onSearch(1);
+
       }}
     >
       Load More

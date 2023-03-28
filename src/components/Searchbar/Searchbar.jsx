@@ -9,9 +9,8 @@ import { FaSearch } from 'react-icons/fa';
 import { Formik } from 'formik';
 
 export const SearchBar = ({ onSubmit }) => {
-  const handleSubmit = (name) => {
+  const handleSubmit = ({name}) => {
     onSubmit(name);
-  
   };
 
   return (

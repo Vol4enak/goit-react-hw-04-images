@@ -2,7 +2,7 @@ import { GallaryItem } from './ImageGalleryItem.styled';
 import { GallaryItemImage } from './ImageGalleryItem.styled';
 import { Modal } from 'components/Modal/Modal';
 import { useState } from 'react';
-export function ImageGalleryItem() {
+export function ImageGalleryItem({items}) {
   const [openModal, setOpenModal] = useState(false);
 
   const isModalOpen = e => {
@@ -21,13 +21,13 @@ export function ImageGalleryItem() {
     }
   };
 
-  const { webformatURL, tags, largeImageURL } = this.props.items;
-  const { isOpenModal } = this.state;
+  const { webformatURL, tags, largeImageURL } = items;
+
   return (
     <>
       <GallaryItem onClick={isModalOpen} onKeyDown={key} tabIndex="0">
         <GallaryItemImage src={webformatURL} alt={tags} />
-        {isOpenModal && <Modal largeImg={largeImageURL} imgAlt={tags} />}
+        {openModal && <Modal largeImg={largeImageURL} imgAlt={tags} />}
       </GallaryItem>
     </>
   );
