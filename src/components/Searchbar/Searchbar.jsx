@@ -4,12 +4,17 @@ import {
   SearchFormButton,
   SearchFormInput,
 } from './Searchbar.styled';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FaSearch } from 'react-icons/fa';
 import { Formik } from 'formik';
 
 export const SearchBar = ({ onSubmit }) => {
-  const handleSubmit = ({name}) => {
+  const handleSubmit = ({ name }) => {
+    if (!name.trim()) {
+      toast.error('Wrong request.🦄', { theme: 'dark' });
+    }
+
     onSubmit(name);
   };
 

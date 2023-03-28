@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as API from './services/api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +15,7 @@ export function App() {
   const [statusBtn, setStatusBtn] = useState(false);
   const [statusSpiner, setStatusSpiner] = useState(false);
   const [statusDowlandMore, setstatusDowlandMore] = useState(false);
-
+  const error = useRef(true);
   const cheackStatus = material => {
     setStatusBtn(true);
     setStatusSpiner(false);
@@ -33,6 +33,11 @@ export function App() {
   };
 
   useEffect(() => {
+    if (error.current) {
+      error.current = false;
+      return;
+    }
+
     if (name.trim()) {
       const getCard = async () => {
         setStatusSpiner(true);
@@ -45,8 +50,6 @@ export function App() {
       };
 
       getCard().catch(console.error);
-    } else {
-      toast.error('Wrong request.🦄', { theme: 'dark' });
     }
   }, [name]);
 
