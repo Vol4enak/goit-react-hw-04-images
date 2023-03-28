@@ -46,7 +46,7 @@ export function App() {
 
         setPhoto(material);
         cheackStatus(material);
-        // setPhoto(prevPhoto => [...prevPhoto, ...material]);
+      
       };
 
       getCard().catch(console.error);
@@ -87,17 +87,3 @@ export function App() {
     </AppGrid>
   );
 }
-
-//    if (name.trim()) {
-//      console.log(123);
-//      try {
-//        const material = await API.getPhoto(name, 1);
-//        cheackStatus(material);
-//        setPhoto(prevPhoto => [...prevPhoto, ...material]);
-//      } catch (error) {
-//        console.log(error);
-//      }
-//    } else {
-//      toast.error('Wrong request.🦄', { theme: 'dark' });
-//    }
-//  };
