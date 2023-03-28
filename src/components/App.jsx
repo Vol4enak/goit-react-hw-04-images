@@ -28,14 +28,12 @@ export function App() {
   };
 
   const handleChange = num => {
-    console.log(num);
     setstatusDowlandMore(true);
     setPage(prevPage => prevPage + num);
   };
 
   useEffect(() => {
     if (name.trim()) {
-      console.log(name.trim());
       const getCard = async () => {
         setStatusSpiner(true);
         setPage(1);
@@ -47,6 +45,8 @@ export function App() {
       };
 
       getCard().catch(console.error);
+    } else {
+      toast.error('Wrong request.🦄', { theme: 'dark' });
     }
   }, [name]);
 
@@ -64,7 +64,6 @@ export function App() {
       setstatusDowlandMore(false);
     }
   }, [name, page, statusDowlandMore]);
-
 
   return (
     <AppGrid>
