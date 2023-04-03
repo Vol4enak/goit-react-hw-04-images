@@ -5,7 +5,6 @@ import { Modal } from 'components/Modal/Modal';
 import { useState } from 'react';
 
 export function ImageGalleryItem({ items }) {
-  console.log(items);
   const [openModal, setOpenModal] = useState(false);
 
   const isModalOpen = e => {
@@ -35,6 +34,13 @@ export function ImageGalleryItem({ items }) {
     </>
   );
 }
-ImageGalleryItem.propTypes = {
-  items: PropTypes.object.isRequired,
+
+ImageGalleryItem.protoType = {
+  items: PropTypes.PropTypes.arrayOf(
+    PropTypes.shape({
+      webformatURL: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
+      largeImageURL: PropTypes.string.isRequired,
+    })
+  ),
 };
